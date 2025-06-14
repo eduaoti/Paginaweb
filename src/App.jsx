@@ -9,12 +9,8 @@ function Home() {
     <div className="container">
       <h1 className="title">Página de Edu</h1>
       <h2 className="subtitle">Eduardo González Ortiz</h2>
-<<<<<<< HEAD
-      <h2 className="subtitle">Me encantan los perros</h2>
-=======
       <h2 className="subtitle">ME gustan los perros</h2>
-      <h1 className="subtitle">Más no los gatos</h1>
->>>>>>> f597df01a356794b20d2e8e0edfe4ded79f4f984
+      <h2 className="subtitle">Más no los gatos</h2>
     </div>
   );
 }
