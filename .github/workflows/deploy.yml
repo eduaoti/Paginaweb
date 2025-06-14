@@ -27,6 +27,10 @@ jobs:
       - name: Build the app
         run: npm run build
 
+      # 👇 PASO OPCIONAL: Construir la imagen Docker
+      - name: Build Docker Image (opcional)
+        run: docker build -t my-react-app .
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
