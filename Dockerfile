@@ -1,20 +1,26 @@
-# Imagen Node dependiendo de versión instalada
-FROM node:24
+# Etapa 1: Build del proyecto con Node
+FROM node:18 AS build
 
-# Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia los archivos del proyecto
 COPY package.json package-lock.json ./
-
-# Instala dependencias
 RUN npm install
 
-# Copia el resto del código
 COPY . .
+RUN npm run build
 
-# Expone el puerto de React (puedes usar 4200 si así lo requiere tu práctica)
-EXPOSE 3000
+# Etapa 2: Servir los archivos estáticos con NGINX
+FROM nginx:alpine
 
-# Ejecuta la aplicación en desarrollo
-CMD ["npm", "start"]
+# Elimina la página de bienvenida por defecto de NGINX
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copia el resultado del build al contenedor NGINX
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Copia configuración personalizada si deseas (opcional)
+# COPY nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
