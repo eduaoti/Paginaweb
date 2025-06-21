@@ -41,12 +41,10 @@ jobs:
           echo "✅ Login exitoso"
 
       - name: 🐳 Construyendo y subiendo la imagen a Docker Hub
-        env:
-          USERNAME: ${{ secrets.DOCKER_USERNAME }}
         run: |
-          echo "🚧 Iniciando construcción de imagen Docker para el usuario $USERNAME"
-          docker buildx build --platform linux/amd64 -t $USERNAME/my-react-app:latest --push .
-          echo "✅ Imagen construida y subida correctamente como $USERNAME/my-react-app:latest"
+          echo "🚧 Iniciando construcción de imagen Docker para el usuario eduaoti"
+          docker buildx build --platform linux/amd64 -t eduaoti/my-react-app:latest --push .
+          echo "✅ Imagen construida y subida correctamente como eduaoti/my-react-app:latest"
 
       - name: 🚀 Desplegando en GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
