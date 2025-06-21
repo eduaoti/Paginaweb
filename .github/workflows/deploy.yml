@@ -33,8 +33,12 @@ jobs:
       - name: Login to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-      - name: Build & Push Docker Image (buildx)
-        run: docker buildx build --platform linux/amd64 -t ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest --push .
+      - name: Build & Push Docker Image
+        run: |
+          docker buildx build \
+            --platform linux/amd64 \
+            -t ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest \
+            --push .
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
