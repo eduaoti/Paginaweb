@@ -1,46 +1,66 @@
-/* Estilos base */
+/* Estilo general en blanco y negro con animación */
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #dbeafe, #f0fdfa);
-  height: 100vh;
+  background-color: #000;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
+  transition: background 0.5s ease;
 }
 
-
-/* Contenedor centrado con animación */
+/* Contenedor con sombra y animación */
 .container {
-  text-align: center;
-  animation: fadeInUp 1s ease-out;
-  background: white;
+  background: #111;
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  animation: fadeInUp 1.2s ease-out;
+  transition: transform 0.3s ease;
+}
+.container:hover {
+  transform: scale(1.02);
 }
 
 /* Título principal */
 .title {
-  font-size: 3rem;
-  color: #2563eb;
+  font-size: 2.8rem;
+  color: #ffffff;
   margin-bottom: 10px;
+  animation: fadeIn 1s ease;
 }
 
-/* Subtítulo */
+/* Subtítulo con efecto suave */
 .subtitle {
-  font-size: 1.5rem;
-  color: #1e293b;
+  font-size: 1.3rem;
+  color: #ccc;
+  margin: 10px 0;
+  transition: color 0.3s ease;
+}
+.subtitle:hover {
+  color: #fff;
 }
 
-/* Animación suave de entrada */
+/* Animación entrada */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
