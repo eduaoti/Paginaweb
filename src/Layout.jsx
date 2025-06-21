@@ -7,13 +7,16 @@ const Layout = () => {
     <div style={{ fontFamily: 'Segoe UI, sans-serif', backgroundColor: '#000', color: '#fff', minHeight: '100vh' }}>
       <header style={{
         padding: '20px',
-        backgroundColor: '#111',
+        backgroundColor: '#1a1a1a', // más claro que #000
         color: '#fff',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderBottom: '2px solid #333',
+        borderBottom: '1px solid #333',
         boxShadow: '0 2px 10px rgba(255,255,255,0.05)',
+        position: 'sticky',
+        top: 0,
+        zIndex: 1000,
       }}>
         <h1 style={{ margin: 0, fontSize: '1.8rem' }}>Mi Sitio Web</h1>
         <nav>
@@ -33,7 +36,7 @@ const Layout = () => {
 
       <footer style={{
         padding: '20px',
-        backgroundColor: '#111',
+        backgroundColor: '#1a1a1a',
         color: '#aaa',
         textAlign: 'center',
         borderTop: '1px solid #333'
@@ -44,6 +47,7 @@ const Layout = () => {
   );
 };
 
+// Estilos de los botones de navegación
 const linkStyle = {
   color: '#fff',
   margin: '0 15px',
